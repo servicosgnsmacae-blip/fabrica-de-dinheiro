@@ -122,8 +122,44 @@ The roadmap explicitly delays multi-agency scale until production, analytics, ec
 
 ---
 
+## DEC-011 — Domain contracts precede implementation
+**Status:** Accepted  
+**Version:** v0.1
+
+### Decision
+FASE 1 begins by defining technology-neutral canonical contracts for `Agency`, `AgencyDNA`, `Job`, `Event`, `Decision`, `Evidence`, `Policy`, `AuditRecord` and `CostRecord` before choosing or implementing framework, database, queue, cloud or external providers.
+
+### Consequence
+Implementation must conform to platform-owned domain meaning instead of allowing a chosen technology or vendor to redefine AgencyOS. The contracts describe business semantics and invariants, not storage schemas or API payloads.
+
+---
+
+## DEC-012 — Jobs and Events are different domain facts
+**Status:** Accepted  
+**Version:** v0.1
+
+### Decision
+A `Job` represents requested/attempted operational work. An `Event` represents an immutable fact that occurred.
+
+### Consequence
+A successful Job does not automatically prove the intended real-world outcome. Reconciliation must use Events and canonical domain state.
+
+---
+
+## DEC-013 — Historical governance and evidence are append-only
+**Status:** Accepted  
+**Version:** v0.1
+
+### Decision
+Material Events, Evidence, Decisions and AuditRecords are not silently rewritten. Corrections or changes create new records that amend, supersede or compensate while preserving history.
+
+### Consequence
+AgencyOS can reconstruct what was known, decided and executed at the time, even after policies or conclusions evolve.
+
+---
+
 ## Open decisions
-The following are intentionally unresolved and must not be guessed during FASE 0:
+The following are intentionally unresolved and must not be guessed during the current FASE 1A workstream:
 
 - implementation language and frameworks;
 - production database;
@@ -131,7 +167,11 @@ The following are intentionally unresolved and must not be guessed during FASE 0
 - orchestration/queue technology;
 - secrets and authentication architecture;
 - concrete provider integrations;
-- detailed audit/provenance schema;
+- concrete serialization/data types;
+- transaction model;
+- ID generation algorithm;
 - data retention periods;
-- accounting allocation method;
-- Champion/Challenger statistical thresholds.
+- accounting and shared-cost allocation method;
+- Champion/Challenger statistical thresholds;
+- cryptographic integrity/hash strategy;
+- schema migration mechanism.
