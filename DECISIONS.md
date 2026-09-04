@@ -158,20 +158,57 @@ AgencyOS can reconstruct what was known, decided and executed at the time, even 
 
 ---
 
-## Open decisions
-The following are intentionally unresolved and must not be guessed during the current FASE 1A workstream:
+## DEC-014 — Initial implementation language is Python
+**Status:** Accepted for FASE 1B  
+**Version:** v0.1
 
-- implementation language and frameworks;
+### Decision
+The first executable AgencyOS domain core will use Python as the implementation language, with Pydantic for domain validation and pytest for automated testing.
+
+### Consequence
+This choice is an implementation vehicle, not an architectural dependency. Domain meaning remains defined by the canonical contracts and must stay portable.
+
+---
+
+## DEC-015 — FastAPI is an interface boundary, not the domain core
+**Status:** Accepted for FASE 1B  
+**Version:** v0.1
+
+### Decision
+FastAPI is approved as a future application/API boundary, but FASE 1B domain code must remain executable without FastAPI and must not import or depend on it.
+
+### Consequence
+The domain remains framework-independent and can later be exposed through other interfaces if needed.
+
+---
+
+## DEC-016 — First executable persistence is in-memory only
+**Status:** Accepted for FASE 1B  
+**Version:** v0.1
+
+### Decision
+The First Pulse scenario will use local in-memory repositories/stores only. No production database, event bus, queue or external service will be selected or required.
+
+### Consequence
+FASE 1B proves domain behavior before infrastructure choices can distort or prematurely constrain the architecture.
+
+---
+
+## Open decisions
+The following are intentionally unresolved after authorizing FASE 1B:
+
 - production database;
 - cloud/hosting provider;
 - orchestration/queue technology;
 - secrets and authentication architecture;
 - concrete provider integrations;
-- concrete serialization/data types;
-- transaction model;
-- ID generation algorithm;
+- transaction model for production;
+- production ID-generation policy;
 - data retention periods;
 - accounting and shared-cost allocation method;
 - Champion/Challenger statistical thresholds;
 - cryptographic integrity/hash strategy;
-- schema migration mechanism.
+- schema migration mechanism;
+- production API shape;
+- dashboard/UI technology;
+- distributed execution topology.
