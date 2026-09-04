@@ -9,16 +9,23 @@ This project is **not** a collection of automations.
 - Architecture version: **v0.1**
 - Project phase: **FASE 0 — Constituição e arquitetura**
 - Implementation status: **blocked by design**
-- Repository status: founding documentation being formalized
+- Repository status: **founding architecture formalized and reviewed**
+- Review status: **no material contradictions identified across the current v0.1 documents**
 
 ## Last decision taken
-The approved Master Plan v0.1 is the founding architecture and source of truth for the project. The Constitution is subordinate only to explicit future architectural decisions approved by Gustavo.
+The approved Master Plan v0.1 is the founding architecture and source of truth for the project. The Constitution formalizes its non-negotiable principles. Any future material architectural change must be explicitly recorded in `DECISIONS.md` and approved by Gustavo.
 
 ## Current phase objective
 Preserve and formalize the approved architecture without implementing production systems, external APIs, automations or content-generation agents.
 
+## Phase 0 completion status
+The requested founding documents and repository structure are present. FASE 0 is documentation-complete but remains **awaiting Gustavo's explicit approval** before the project can move to FASE 1.
+
 ## Next step
-Review the complete FASE 0 documentation with Gustavo and obtain explicit authorization before beginning FASE 1 — Fundação técnica da plataforma.
+Gustavo reviews the v0.1 foundation and either:
+
+1. approves FASE 0 and authorizes FASE 1 — Fundação técnica da plataforma; or
+2. requests architectural revisions that remain within FASE 0.
 
 ## Existing blockers
 No technical blocker currently identified. The intentional blocker is governance: **do not begin FASE 1 without Gustavo's authorization**.
@@ -34,6 +41,8 @@ No technical blocker currently identified. The intentional blocker is governance
 - paid integrations.
 
 ## Open architectural decisions
+These are intentionally unresolved and must not be guessed during FASE 0:
+
 - technology stack and programming language;
 - database technology and storage topology;
 - job queue/orchestration mechanism;
@@ -45,8 +54,24 @@ No technical blocker currently identified. The intentional blocker is governance
 - first production-grade YouTube integration strategy;
 - criteria and statistical thresholds for Champion/Challenger promotion.
 
+## Coherence review
+The current documents consistently preserve the following approved model:
+
+- Mother Agency governs; Asset Agencies execute;
+- each Asset Agency owns one economic asset;
+- creation and approval are separated;
+- AI is not a source of truth;
+- provenance, auditability and institutional memory are platform concerns;
+- autonomy is progressive and reversible;
+- economic results govern scale;
+- important changes use controlled experimentation and Champion/Challenger;
+- one asset must work correctly before portfolio scale.
+
+No material contradiction was identified. Differences between the original Master Plan roadmap and the formal `docs/ROADMAP.md` are treated as refinement of phase decomposition requested by Gustavo, not a change to the approved architecture.
+
 ## Session handoff
 A new Codex session should first read, in order:
+
 1. `PROJECT_STATUS.md`
 2. `docs/CONSTITUTION.md`
 3. `docs/MASTER_PLAN.md`
